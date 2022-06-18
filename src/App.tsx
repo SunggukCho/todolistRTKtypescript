@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useRef, useState, useReducer } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface Todo {
   id: number;
@@ -39,8 +40,11 @@ const initialState: Todo[] = [
 
 function App() {
   const todoId = useRef(initialState.length);
+  const dispatch = useDispatch();
+  const todos = useSelector((state: any) => state.todos);
+
   const [todo, setTodo] = useState("");
-  const [todos, dispatch] = useReducer(reducer, initialState);
+  // const [todos, dispatch] = useReducer(reducer, initialState);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setTodo(e.target.value);
   const handleSubmit = () => {
     todoId.current += 1;
@@ -55,7 +59,7 @@ function App() {
   const handleDelete = (deleteTodo: Todo) => dispatch({ type: "DELETE", todo: todos.filter((todo: Todo) => todo.id === deleteTodo.id)[0] });
   const toggle = (checkedTodo: Todo) => dispatch({ type: TOGGLE, todos: todos.map((todo: Todo) => (todo.id === checkedTodo.id ? { ...todo, done: !todo.done } : todo)) });
   
-  // useEffect(()=>console.log(todos))
+  useEffect(()=>console.log(todos))
 
   return (
     <div className="App">

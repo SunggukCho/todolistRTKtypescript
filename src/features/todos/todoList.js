@@ -15,31 +15,21 @@ export const todoSlice = createSlice({
     }
   ],
   reducers: {
-    add: (state, action) => {
-      state.todos.push(action.value)
+    addTodo: (state, action) => {
+      state.push(action.payload)
     },
-    del: (state) => {
-      // state.filter((todo) => todo.id !== action.todo.id)
+    delTodo: (state, action) => {
+      const newTodos = state.filter(todo => todo.id !== action.payload.id)
+      return newTodos
     },
-    toggle: (state, action) => {
-      // state.value += action.payload
+    toggleTodo: (state, action) => {
+      const newTodos = state.map(todo => todo.id !== action.payload.id ? todo : {...todo, done: !todo.done})
+      return newTodos
     },
   },
 })
 
-// function reducer (state: any, action: any) {
-//   switch (action.type) {
-//     case ADD:
-//       return state.concat(action.todo)
-//     case DELETE:
-//       return state.filter((todo: Todo) => todo.id !== action.todo.id)
-//     case TOGGLE:
-//       return action.todos
-//     default:
-//       return
-//   }
-// }
 
-export const { add, del, toggle } = todoSlice.actions
+export const { addTodo, delTodo, toggleTodo } = todoSlice.actions
 
 export default todoSlice.reducer

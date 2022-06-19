@@ -1,28 +1,12 @@
 import './App.css';
-import { useEffect, useRef, useState, useReducer } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addTodo, delTodo, toggleTodo } from './features/todos/todoList'
 
 interface Todo {
   id: number;
   value: string;
   done: boolean;
-}
-
-const ADD = "ADD";
-const DELETE = "DELETE";
-const TOGGLE = "TOGGLE";
-
-function reducer (state: any, action: any) {
-  switch (action.type) {
-    case ADD:
-      return state.concat(action.todo)
-    case DELETE:
-      return state.filter((todo: Todo) => todo.id !== action.todo.id)
-    case TOGGLE:
-      return action.todos
-    default:
-      return
-  }
 }
 
 const initialState: Todo[] = [
@@ -53,13 +37,11 @@ function App() {
       value: todo,
       done: false
     }
-    dispatch({ type: ADD, todo: newTodo })
+    dispatch(addTodo(newTodo))
     setTodo("")
   }
-  const handleDelete = (deleteTodo: Todo) => dispatch({ type: "DELETE", todo: todos.filter((todo: Todo) => todo.id === deleteTodo.id)[0] });
-  const toggle = (checkedTodo: Todo) => dispatch({ type: TOGGLE, todos: todos.map((todo: Todo) => (todo.id === checkedTodo.id ? { ...todo, done: !todo.done } : todo)) });
-  
-  useEffect(()=>console.log(todos))
+  const handleDelete = (deleteTodo: Todo) => dispatch(delTodo(deleteTodo));
+  const toggle = (checkedTodo: Todo) => dispatch(toggleTodo(checkedTodo));
 
   return (
     <div className="App">

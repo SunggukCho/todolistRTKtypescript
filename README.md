@@ -11,7 +11,7 @@ project 실행.
 - [x] useReducer 활용  
 - [x] react-redux 활용  
 - [x] redux-toolkit의 slice활용  
-- [] component 분리   
-- [] json webserver  
+- [x] component 분리   
+- [x] json webserver  
 - [] redux-thunk  
 - [] react-query로 비동기 통신 대체  

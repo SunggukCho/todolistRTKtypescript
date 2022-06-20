@@ -1,0 +1,14 @@
+{
+  "initialState": [
+    {
+      "id": 1,
+      "value": "Hello",
+      "done": true
+    },
+    {
+      "id": 2,
+      "value": "World!",
+      "done": false
+    }
+  ]
+}

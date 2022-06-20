@@ -6,22 +6,8 @@ import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
 import {Todo} from './types/todo';
 
-
-const initialState: Todo[] = [
-  {
-    id: 1,
-    value: "Hello",
-    done: true
-  },
-  {
-    id: 2,
-    value: "World!",
-    done: false
-  }
-]
-
 function App() {
-  const todoId = useRef(initialState.length);
+  const todoId = useRef(2);
   const dispatch = useDispatch();
   const todos = useSelector((state: any) => state.todos);
 

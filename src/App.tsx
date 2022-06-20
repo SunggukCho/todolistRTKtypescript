@@ -1,14 +1,15 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, delTodo, toggleTodo } from './features/todos/todoList';
+import { addTodo, delTodo, toggleTodo, fetchInitialState } from './features/todos/todoList';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
-import {Todo} from './types/todo';
+import { Todo } from './types/todo';
+import { AppDispatch } from './store'
 
 function App() {
   const todoId = useRef(2);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const todos = useSelector((state: any) => state.todos);
 
   const [todo, setTodo] = useState("");
@@ -25,6 +26,10 @@ function App() {
   }
   const handleDelete = (deleteTodo: Todo) => dispatch(delTodo(deleteTodo));
   const toggle = (checkedTodo: Todo) => dispatch(toggleTodo(checkedTodo));
+
+  useEffect(() => {
+    dispatch(fetchInitialState())
+  }, [])
 
   return (
     <>

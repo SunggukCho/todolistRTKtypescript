@@ -15,3 +15,4 @@ project 실행.
 - [x] json webserver  
 - [] redux-thunk  
 - [] react-query로 비동기 통신 대체  
+- [] redux toolkit의 reselect로 최적화 해보기

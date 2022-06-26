@@ -35,7 +35,7 @@ function App() {
     <>
       <TodoInput todo={todo} onChange={handleChange} placeholder="할 일 입력" />
       <button onClick={handleSubmit}>+ADD</button>
-      <TodoList todos={todos} handleSubmit={handleSubmit} handleDelete={handleDelete} toggle={toggle}/>
+      <TodoList todos={todos} handleSubmit={handleSubmit} handleDelete={handleDelete} toggle={toggle} />
     </>
   );
 }

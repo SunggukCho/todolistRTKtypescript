@@ -6,6 +6,10 @@ project 실행.
 
 ### `npm start`
 
+project test.
+
+### `npm test`
+
 ## 작업 순서
 - [x] pure react todoList  
 - [x] useReducer 활용  

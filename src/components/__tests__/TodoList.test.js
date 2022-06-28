@@ -29,11 +29,11 @@ test("TodoList 엘리먼트에 `Todo`라는 글자가 포함되어있는가?", (
   expect(TodoListEl).toBeInTheDocument();
 })
 
-test("TodoList 스냅샷 체크", () => {
+test("TodoList 스냅샷 체크", ()=>{
   // 스냅샷 활용
   // 미리찍어둔 화면과 렌더링된 화면이 같은지를 체크함.
   // 처음 테스트를 하면 snapshots라는 디렉토리가 생성됨.
   const el = render(<TodoList {...TodoListProps} />)
-  expect(el).toMatchSnapshot();
+  expect(el.container).toMatchSnapshot();
 })
 

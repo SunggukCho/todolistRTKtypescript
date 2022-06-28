@@ -15,6 +15,14 @@ test('make user: 이름과 나이를 전달받아서 객체를 반환', ()=>{
   })
 })
 
+it('name is Mike', () => {
+  // async 1. done()
+  fn.getName((name) => {
+    expect(name).toBe("Mike");
+    // done();
+  });
+})
+
 /*
  Jest Matchers
  #1. Boolean 

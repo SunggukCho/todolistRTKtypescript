@@ -3,5 +3,11 @@ export const fn = {
   makeUser: (name, age)=> ({
     name,
     age
-  })
+  }),
+  getName: (callback) => {
+    const name = "Mike";
+    setTimeout(()=> {
+      callback(name)
+    }, 3000);
+  }
 }

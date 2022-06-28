@@ -15,13 +15,25 @@ test('make user: 이름과 나이를 전달받아서 객체를 반환', ()=>{
   })
 })
 
-it('name is Mike', () => {
-  // async 1. done()
-  fn.getName((name) => {
-    expect(name).toBe("Mike");
-    // done();
-  });
-})
+// it('name is Mike', done => {
+//   // async 1. done()
+//   fn.getName((name) => {
+//     expect(name).toBe("Mike");
+//     done();
+//   });
+// })
+// it('age is 30', () => {
+//   // async 2. Promise()
+//   return fn.getAge().then(age => {
+//     expect(age).toBe(30);
+//   });
+// })
+
+it('age is 30', async () => {
+  // async 3. async/await
+	await expect(fn.getAge()).resolves.toBe(30)
+});
+
 
 /*
  Jest Matchers

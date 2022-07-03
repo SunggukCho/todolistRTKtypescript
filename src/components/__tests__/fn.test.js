@@ -29,30 +29,85 @@ test('make user: 이름과 나이를 전달받아서 객체를 반환', ()=>{
 //   });
 // })
 
-it('age is 30', async () => {
-  // async 3. async/await
-	await expect(fn.getAge()).resolves.toBe(30)
-});
+// it('age is 30', async () => {
+//   // async 3. async/await
+// 	await expect(fn.getAge()).resolves.toBe(30)
+// });
 
+// let num = 1; 
+// test('1+1 = 2', () => {
+//   num = fn.add(num, 1)
+//   expect(num).toBe(2)
+// })
+// test('1+2 = 3', () => {
+//   fn.add(num, 2)
+//   expect(num).toBe(3)
+// })
 
-/*
- Jest Matchers
- #1. Boolean 
- - toBeNull
- - toBeUndefined
- - toBeDefined
+// beforeEach
 
- #2. Falsy/Truthy
- - toBeFalsy
- - toBeTruthy
+// let num;
+// beforeEach(()=>{
+//   num = 1;
+// })
+// test('1+1 = 2', () => {
+//   num = fn.add(num, 1)
+//   expect(num).toBe(2)
+// })
+// test('1+2 = 3', () => {
+//   num = fn.add(num, 2)
+//   expect(num).toBe(3)
+// })
 
- #3. 대소비교
- - toBeGreaterThan (크다)
- - toBeGreaterThanOrEqual (크거나 같다)
- - toBeLessThan
- - toBeLessThanOrEqual
+// // beforeAll/afterAll
+// let user;
+// beforeAll(async()=>{
+//   user = await fn.connectUserDB();
+// })
 
- #4. epsilon check
- - toBeCloseTo // ex: add(0.1, 0.2).toBeCloseTo(0.3) -> true (toBe(0,3) -> false)
+// afterAll(async () => {
+//   return await fn.disConnectUserDB();
+// })
 
-*/ 
+// test('User name is Mike', () => {
+//   expect(user.name).toBe("Mike")
+// })
+// test('Mike is 30', () => {
+//   expect(user.age).toBe(30)
+// })
+
+// mockFn
+// function forEach(items, callback) {
+//   for (let index = 0; index < items.length; index++) {
+//     callback(items[index]);
+//   }
+// }
+// const mockCallback = jest.fn(x => 42 + x);
+
+// mockCallback(0);
+// mockCallback(1);
+// // The mock function is called twice
+// test('1', ()=>{
+//   expect(mockCallback.mock.calls.length).toBe(2);
+// })
+
+// test('2', ()=>{
+//   // The first argument of the first call to the function was 0
+//   expect(mockCallback.mock.calls[0][0]).toBe(0);
+// })
+// test('3', ()=>{
+//   expect(mockCallback.mock.calls[1][0]).toBe(1);
+//   // The first argument of the second call to the function was 1
+// })
+
+// test('4', ()=>{
+//   // The return value of the first call to the function was 42
+//   expect(mockCallback.mock.results[0].value).toBe(42);
+// })
+
+// jest.mock('../fn')
+// fn.connectUserDB().mockReturnValue({name: "Mike", age: 30})
+// test('test', async ()=>{
+//   const user = await fn.connectUserDB();
+//   expect(user.name).toEqual("Mike");
+// })

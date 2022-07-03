@@ -17,5 +17,22 @@ export const fn = {
         resolve(age)
       }, 3000);
     })
+  },
+  connectUserDB: () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(()=> {
+        resolve({
+          name: "Mike",
+          age: 30
+        })
+      }, 3000)
+    })
+  },
+  disConnectUserDB: () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(()=> {
+        resolve()
+      }, 3000)
+    })
   }
 }

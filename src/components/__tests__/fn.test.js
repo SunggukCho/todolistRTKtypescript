@@ -105,9 +105,9 @@ test('make user: 이름과 나이를 전달받아서 객체를 반환', ()=>{
 //   expect(mockCallback.mock.results[0].value).toBe(42);
 // })
 
-// jest.mock('../fn')
-// fn.connectUserDB().mockReturnValue({name: "Mike", age: 30})
-// test('test', async ()=>{
-//   const user = await fn.connectUserDB();
-//   expect(user.name).toEqual("Mike");
-// })
+jest.mock('../fn')
+fn.connectUserDB().mockReturnValue({name: "Mike", age: 30})
+test('test', async ()=>{
+  const user = await fn.connectUserDB();
+  expect(user.name).toEqual("Mike");
+})
